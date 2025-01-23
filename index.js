@@ -8,15 +8,17 @@ const app = express();
 const PORT = 5000;
 
 // URL to send GET request to
-const targetUrl = 'https://real-time-chat-app-0030.onrender.com/';
+const targetUrls = ['https://real-time-chat-app-0030.onrender.com/','https://sarthi-dmpe.onrender.com/','https://leetcoders.onrender.com/'];
 
 // Function to send GET request
 const sendGetRequest = async () => {
-  try {
-    const response = await axios.get(targetUrl);
-    console.log('GET request sent successfully:', response.data);
-  } catch (error) {
-    console.error('Error sending GET request:', error.message);
+  for (const url of targetUrls) {
+    try {
+      const response = await axios.get(url);
+      console.log(`GET request sent successfully to ${url}:`, response.data);
+    } catch (error) {
+      console.error(`Error sending GET request to ${url}:`, error.message);
+    }
   }
 };
 
