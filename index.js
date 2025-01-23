@@ -2,6 +2,7 @@
 const express = require('express');
 const axios = require('axios');
 const cron = require('node-cron');
+const { sendAlertEmail } = require('./emailNotification');
 
 // Initialize Express app
 const app = express();
@@ -18,6 +19,7 @@ const sendGetRequest = async () => {
       console.log(`GET request sent successfully to ${url}:`, response.data);
     } catch (error) {
       console.error(`Error sending GET request to ${url}:`, error.message);
+      await sendAlertEmail(process.env.ALERT_EMAIL, url, error.message);
     }
   }
 };
