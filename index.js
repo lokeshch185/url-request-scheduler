@@ -9,7 +9,7 @@ const app = express();
 const PORT = 5000;
 
 // URL to send GET request to
-const targetUrls = ['your urls here'];
+const targetUrls = ['https://real-time-chat-app-0030.onrender.com/','https://sarthi-dmpe.onrender.com/'];
 
 // Function to send GET request
 const sendGetRequest = async () => {
